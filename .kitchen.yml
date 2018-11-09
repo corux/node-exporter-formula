@@ -1,0 +1,27 @@
+driver:
+  name: docker
+
+platforms:
+  - name: centos-7
+    driver_config:
+      image: corux/centos7-salt
+      privileged: True
+      run_command: /usr/sbin/init
+
+provisioner:
+  name: salt_solo
+  formula: node-exporter
+  pillars-from-files:
+    node_exporter.sls: pillar.example
+  pillars:
+    top.sls:
+      base:
+        "*":
+          - node_exporter
+  state_top:
+    base:
+      "*":
+        - node-exporter
+
+suites:
+  - name: default
