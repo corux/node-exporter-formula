@@ -1,0 +1,6 @@
+CentOS:
+  node_exporter:
+    repo: https://copr-be.cloud.fedoraproject.org/results/ibotty/prometheus-exporters/epel-$releasever-$basearch/
+Fedora:
+  node_exporter:
+    repo: https://copr-be.cloud.fedoraproject.org/results/ibotty/prometheus-exporters/fedora-$releasever-$basearch/

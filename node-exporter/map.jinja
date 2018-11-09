@@ -1,0 +1,4 @@
+{% import_yaml 'node-exporter/os_map.yaml' as os_map %}
+{% set default_settings = salt['grains.filter_by'](os_map, grain='os') %}
+
+{% set node_exporter = salt['pillar.get']('node-exporter', default=default_settings.get('node_exporter'), merge=True) %}
